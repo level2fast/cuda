@@ -147,7 +147,7 @@ int main(int argc, const char * argv[])
 #ifndef UNIFIED_MEM
                 /*  1) Copy data from host to device
                  *  2) Call GPU host function with device data
-                 *   3) Copy data from device to host
+                 *  3) Copy data from device to host
                 */
 		//cudaMemcpy(<TO ADDRESS>,<FROM ADDR>,<Size>,cudaMemcpyHostToDevice);
 		cudaMemcpy(gray_device,gray.ptr<uchar>(), WIDTH*HEIGHT*sizeof(unsigned char), cudaMemcpyHostToDevice);
