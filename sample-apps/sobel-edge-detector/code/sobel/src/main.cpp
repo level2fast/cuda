@@ -70,13 +70,13 @@ int main(int argc, const char * argv[])
 	Timer timer;
 	double time_elapsed = 0;
 
-	//TODO: allocate unified memory for the input and result matrices.
+	// allocate unified memory for the input and result matrices.
  	unsigned char* gray_device;
 	unsigned char* sobel_out_device;
 	
 #ifndef UNIFIED_MEM
-    //TODO: Allocate memory on the GPU device.
-    //TODO: Declare the host image result matrices
+    // Allocate memory on the GPU device.
+    // Declare the host image result matrices
     cudaMalloc((void **)&gray_device,WIDTH*HEIGHT*sizeof(unsigned char));
     cudaMalloc((void **)&sobel_out_device,WIDTH*HEIGHT*sizeof(unsigned char));
 
@@ -84,8 +84,8 @@ int main(int argc, const char * argv[])
 	Mat sobel_out = Mat(HEIGHT, WIDTH, CV_8U);
 
 #else
-    //TODO: Allocate unified memory for the necessary matrices
-    //TODO: Declare the image matrices which point to the unified memory
+    // Allocate unified memory for the necessary matrices
+    // Declare the image matrices which point to the unified memory
 	cudaMallocManaged((void **)&gray_device,WIDTH*HEIGHT*sizeof(unsigned char));
     cudaMallocManaged((void **)&sobel_out_device,WIDTH*HEIGHT*sizeof(unsigned char));
 
@@ -135,26 +135,26 @@ int main(int argc, const char * argv[])
 				break;
 			case SOBEL_CPU:
 				timer.start();
-				//TODO: call the sobel CPU function
+				// call the sobel CPU function
 				sobel_filter_cpu(gray.ptr<uchar>(), sobel_out.ptr<uchar>(), HEIGHT, WIDTH); 
 				timer.stop();
 				break;
 
 			case SOBEL_GPU:
 				timer.start();
-				//TODO: call the sobel GPU function
+				// call the sobel GPU function
 				
 #ifndef UNIFIED_MEM
-                /* TODO: 1) Copy data from host to device
-                 *       2) Call GPU host function with device data
-                 *       3) Copy data from device to host
+                /*  1) Copy data from host to device
+                 *  2) Call GPU host function with device data
+                 *   3) Copy data from device to host
                 */
 		//cudaMemcpy(<TO ADDRESS>,<FROM ADDR>,<Size>,cudaMemcpyHostToDevice);
 		cudaMemcpy(gray_device,gray.ptr<uchar>(), WIDTH*HEIGHT*sizeof(unsigned char), cudaMemcpyHostToDevice);
 		sobel_filter_gpu(gray_device, sobel_out_device, HEIGHT, WIDTH);
 		cudaMemcpy(sobel_out.ptr<uchar>(),sobel_out_device,WIDTH*HEIGHT*sizeof(unsigned char), cudaMemcpyDeviceToHost);
 #else
-                /* TODO: 1) Call GPU host function with unified memory allocated data
+                /* 1) Call GPU host function with unified memory allocated data
                 */
 		sobel_filter_gpu(gray.ptr<uchar>(), sobel_out.ptr<uchar>(), HEIGHT, WIDTH); 
 
@@ -188,7 +188,7 @@ int main(int argc, const char * argv[])
 		key = waitKey(1);
 	}
 
-	//TODO: free the device memory
+	// free the device memory
 #ifndef UNIFIED_MEM
 	cudaFree(gray_device);
 	cudaFree(sobel_out_device);
