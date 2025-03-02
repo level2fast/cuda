@@ -38,7 +38,7 @@ int main(int argc, char const *argv[])
 	float* h_C;
 	float* h_Ccpu;
 	
-	// allocate the unified memory for the input/output matrices. The program will result in a segfault until you complete this line.
+	// allocate the unified memory for the input/output matrices.
 	cudaMallocManaged((void **)&h_A,N*M*sizeof(float));
     cudaMallocManaged((void **)&h_B,M*N*sizeof(float));
     cudaMallocManaged((void **)&h_C,N*N*sizeof(float));
