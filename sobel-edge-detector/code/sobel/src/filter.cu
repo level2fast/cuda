@@ -276,7 +276,7 @@ __global__ void sobel_gpu(const uchar * input, uchar * output, const uint height
 // =================== GPU Host Functions ===================
 void sobel_filter_gpu(const uchar * input, uchar * output, const uint height, const uint width)
 {
-	//TODO: launch kernel function // 512/8 
+	// launch kernel function // 512/8 
 	const int grid_x = 8; // 32 blocks
 	const int grid_y = 8; // 32 blocks
 
