@@ -38,7 +38,7 @@ int main(int argc, char const *argv[])
 	float* h_C;
 	float* h_Ccpu;
 	
-	//TODO: allocate the unified memory for the input/output matrices. The program will result in a segfault until you complete this line.
+	// allocate the unified memory for the input/output matrices. The program will result in a segfault until you complete this line.
 	cudaMallocManaged((void **)&h_A,N*M*sizeof(float));
     cudaMallocManaged((void **)&h_B,M*N*sizeof(float));
     cudaMallocManaged((void **)&h_C,N*N*sizeof(float));
@@ -82,7 +82,7 @@ int main(int argc, char const *argv[])
 
 	// MM GPU
 	float time_gpu = -1.f;
-	//TODO: call the GPU host wrapper function
+	// call the GPU host wrapper function
 	// copy matrix A and B from host to device memory
 	Timer cpu_timer;
     cudaMemcpy(d_A, h_A, sizeof(float)*N*M, cudaMemcpyHostToDevice);
@@ -130,7 +130,7 @@ int main(int argc, char const *argv[])
 	cout << ss.str() << endl;
 
 	// Free memory
-	//TODO: free the device memory
+	// free the device memory
 	cudaFree(d_A);
 	cudaFree(d_B);
 	cudaFree(d_C);
