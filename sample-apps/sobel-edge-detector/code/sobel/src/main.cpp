@@ -80,17 +80,17 @@ int main(int argc, const char * argv[])
     cudaMalloc((void **)&gray_device,WIDTH*HEIGHT*sizeof(unsigned char));
     cudaMalloc((void **)&sobel_out_device,WIDTH*HEIGHT*sizeof(unsigned char));
 
-	Mat gray      = Mat(HEIGHT, WIDTH, CV_8U);
-	Mat sobel_out = Mat(HEIGHT, WIDTH, CV_8U);
+    Mat gray      = Mat(HEIGHT, WIDTH, CV_8U);
+    Mat sobel_out = Mat(HEIGHT, WIDTH, CV_8U);
 
 #else
     // Allocate unified memory for the necessary matrices
     // Declare the image matrices which point to the unified memory
-	cudaMallocManaged((void **)&gray_device,WIDTH*HEIGHT*sizeof(unsigned char));
+    cudaMallocManaged((void **)&gray_device,WIDTH*HEIGHT*sizeof(unsigned char));
     cudaMallocManaged((void **)&sobel_out_device,WIDTH*HEIGHT*sizeof(unsigned char));
 
-	Mat gray      = Mat(HEIGHT, WIDTH, CV_8U);
-	Mat sobel_out = Mat(HEIGHT, WIDTH, CV_8U);
+    Mat gray      = Mat(HEIGHT, WIDTH, CV_8U);
+    Mat sobel_out = Mat(HEIGHT, WIDTH, CV_8U);
 	
 #endif
 	 
