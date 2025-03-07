@@ -35,6 +35,7 @@ Include relevant screenshots or GIFs showcasing your project’s interface and f
 ## **📦 Tech Stack**  
 - **Language:** C++, CUDA
 - **Libraries:** OpenCV, Stdlib
+- **Hardware:** CUDA Enabled Device
 ---
 
 <!-- ## **📥 Installation & Setup**  
