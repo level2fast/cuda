@@ -1,8 +1,8 @@
 CXX?=g++
 CXXFLAGS=-O3 -std=c++11 -g
-NVCC?=/usr/local/cuda-10.2/bin/nvcc
+NVCC?=/usr/local/cuda-12.8/bin/nvcc
 NVCCFLAGS=-O3
-EXEC=sobel
+EXEC=bin/sobel
 
 INCLUDEDIR=include
 SRCDIR=src
@@ -15,8 +15,8 @@ ifeq "$(OPENCV_VERSION)" "4.1.1"
         OPENCV_LIBS = `pkg-config --libs opencv4`
         CXXFLAGS += -DOPENCV4
 else
-        OPENCV_INCLUDE_PATH = `pkg-config --cflags opencv`
-        OPENCV_LIBS = `pkg-config --libs opencv`
+        OPENCV_INCLUDE_PATH = `pkg-config --cflags opencv4`
+        OPENCV_LIBS = `pkg-config --libs opencv4`
         NVCCFLAGS += -Wno-deprecated-gpu-targets
 endif
 
