@@ -46,7 +46,7 @@ A [report](https://github.com/level2fast/cuda/blob/main/sobel-edge-detector/docs
 ## **📸 Screenshots**  
 Snapshot of 1 frame of a test video used in this project with sobel operator applied to it.  
 
-![Screenshot](/code/sobel/images/sobel_snapshot.png)  
+![Screenshot](sobel-edge-detector/code/sobel/images/sobel_snapshot.png)  
 
 ---
 
