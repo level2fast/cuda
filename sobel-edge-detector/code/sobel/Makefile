@@ -10,7 +10,7 @@ OBJDIR=objs
 
 OPENCV_VERSION := $(shell pkg-config --modversion opencv4)
 
-ifeq "$(OPENCV_VERSION)" "4.1.1"
+ifeq "$(OPENCV_VERSION)" "4.11.0"
         OPENCV_INCLUDE_PATH = `pkg-config --cflags opencv4`
         OPENCV_LIBS = `pkg-config --libs opencv4`
         CXXFLAGS += -DOPENCV4
